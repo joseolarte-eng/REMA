@@ -1,1 +1,19 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evita la acumulación</title>
+</head>
+<body>
+    <div class="benefit-card">
+        <h3 class="benefit-title">Evita la acumulación</h3>
+        <p class="benefit-description">
+            Consulta cuándo se aproxima el camión recolector y organiza mejor el momento para sacar tus residuos.
+        </p>
+        <div class="benefit-icon-container">
+            <img src="icono-bolsas-basura.svg" alt="Ícono de bolsas de basura" class="benefit-icon">
+        </div>
+    </div>
+</body>
+</html>
