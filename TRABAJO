@@ -7,10 +7,15 @@
 </head>
 <body>
     <div class="benefit-card">
+        <!-- Criterio 1: Título -->
         <h3 class="benefit-title">Evita la acumulación</h3>
+        
+        <!-- Criterio 2: Texto descriptivo -->
         <p class="benefit-description">
             Consulta cuándo se aproxima el camión recolector y organiza mejor el momento para sacar tus residuos.
         </p>
+        
+        <!-- Criterios 3 y 4: Ícono de bolsas de basura debajo de la descripción -->
         <div class="benefit-icon-container">
             <img src="icono-bolsas-basura.svg" alt="Ícono de bolsas de basura" class="benefit-icon">
         </div>
