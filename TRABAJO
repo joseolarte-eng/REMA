@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evita la acumulación</title>
+    <title>Beneficios principales</title>
 </head>
 <body>
-    <div class="benefit-card">
-        <!-- Criterio 1: Título -->
-        <h3 class="benefit-title">Evita la acumulación</h3>
-        
-        <!-- Criterio 2: Texto descriptivo -->
-        <p class="benefit-description">
-            Consulta cuándo se aproximaa el camión recolector y organiza mejor el momento para sacar tus residuos.
-        </p>
-        
-        <!-- Criterios 3 y 4: Ícono de bolsas de basura debajo de la descripción -->
-        <div class="benefit-icon-container">
-            <img src="icono-bolsas-basura.svg" alt="Ícono de bolsas de basura" class="benefit-icon">
+    <section>
+        <h2>Beneficios principales</h2>
+        <div>
+            <div>
+                <h3>Evita la acumulación</h3>
+                <p>Consulta cuándo se aproxima el camión recolector y organiza mejor el momento para sacar tus residuos.</p>
+                <img src="icono-bolsas-basura.svg" alt="Bolsas de basura">
+            </div>
+            <div>
+                <h3>Ahorra tiempo</h3>
+                <p>Evita esperar innecesariamente al camión o preguntar a otras personas cuándo pasará.</p>
+                <img src="icono-reloj-arena.svg" alt="Reloj de arena">
+            </div>
+            <div>
+                <h3>Encuentra dónde desechar</h3>
+                <p>Localiza contenedores cercanos cuando necesites una alternativa para depositar tus residuos.</p>
+                <img src="icono-buscador-basurero.svg" alt="Lupa y basurero">
+            </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>
