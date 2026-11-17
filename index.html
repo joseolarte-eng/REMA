@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REMA</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER GENERAL */
+        header {
+            width: 100%;
+            height: 90px;
+            background-color: #EAF5FA;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        /* LOGO */
+        .logo img {
+            width: 165px;
+            height: auto;
+            display: block;
+        }
+
+        /* NAVEGACIÓN */
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 5px;
+        }
+
+        nav a:first-child {
+            border-bottom: 3px solid #91CDE0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 500px) {
+            header {
+                padding: 0 10px;
+            }
+
+            .logo img {
+                width: 105px;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <img src="C:\Users\HP\Downloads\rema\logo.png" alt="Logo REMA">
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="mapeo.html">Mapeo</a>
+            <a href="contenedores.html">Contenedores</a>
+        </nav>
+
+    </header>
+
+</body>
+</html>
