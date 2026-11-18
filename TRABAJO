@@ -3,196 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapeo en Tiempo Real | Seguimiento de Recolección</title>
+  <title>MAPEO EN TIEMPO REAL | Seguimiento de Recolección</title>
   
-  <!-- Tipografía moderna desde Google Fonts -->
+  <!-- Tipografías Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    /* =========================================
-       1. VARIABLES Y RESET BÁSICO
-       ========================================= */
-    :root {
-      --color-text-primary: #ffffff;
-      --color-text-secondary: #e2e8f0;
-      --color-accent: #10b981;       /* Verde esmeralda: transmite sostenibilidad y estado "activo" */
-      --color-accent-hover: #059669;
-      --overlay-dark: rgba(15, 23, 42, 0.62);
-      --font-heading: 'Montserrat', sans-serif;
-      --font-body: 'Open Sans', sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--color-text-primary);
-      background-color: #0f172a;
-      line-height: 1.6;
-    }
-
-    /* =========================================
-       2. SECCIÓN HERO CON IMAGEN DE MAPA/UBICACIÓN
-       ========================================= */
-    .hero-location {
-      position: relative;
-      min-height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem 1.5rem;
-
-      /* Imagen de fondo relacionada con mapas/ubicación en móvil + Overlay oscuro para contraste */
-      background-image: 
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.78)),
-        url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .hero-content {
-      max-width: 780px;
-      z-index: 2;
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    /* Indicador visual sutil de "En vivo" */
-    .live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(6px);
-      padding: 0.4rem 1rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .pulse-dot {
-      width: 10px;
-      height: 10px;
-      background-color: var(--color-accent);
-      border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      animation: pulse 1.8s infinite;
-    }
-
-    /* Título principal replicando la jerarquía de la referencia */
-    .hero-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2.2rem, 5.5vw, 4.2rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      line-height: 1.15;
-      letter-spacing: 1px;
-      margin-bottom: 1.25rem;
-      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-      color: var(--color-text-secondary);
-      max-width: 600px;
-      margin: 0 auto 2.25rem auto;
-      font-weight: 400;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Botón de acción (CTA) */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background-color: var(--color-accent);
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.95rem 2rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--color-accent-hover);
-      transform: translateY(-2px);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-    }
-
-    /* Panel de estado interactivo (Simulación básica con JS) */
-    .status-card {
-      margin-top: 1.75rem;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 12px;
-      padding: 1.25rem;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      display: none; /* Oculto hasta que el usuario consulte */
-      text-align: left;
-    }
-
-    .status-card.active {
-      display: block;
-      animation: fadeInUp 0.4s ease-out;
-    }
-
-    .status-card h3 {
-      font-size: 1rem;
-      color: var(--color-accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .status-card p {
-      font-size: 0.92rem;
-      color: var(--color-text-secondary);
-    }
-
-    /* =========================================
-       3. ANIMACIONES
-       ========================================= */
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  
+  <!-- Hoja de estilos externa -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Estructura semántica principal -->
   <main>
     <section class="hero-location" aria-labelledby="hero-heading">
       <div class="hero-content">
@@ -202,9 +24,8 @@
           <span>Sistema GPS Activo</span>
         </div>
 
-        <h1 id="hero-heading" class="hero-title">
-          Mapeo<br>en tiempo real
-        </h1>
+        <!-- Criterio de aceptación: Título exacto -->
+        <h1 id="hero-heading" class="hero-title">MAPEO EN TIEMPO REAL</h1>
 
         <p class="hero-subtitle">
           Averigua dónde se encuentra el camión de basura en tiempo real para evitar preocupaciones.
@@ -218,7 +39,6 @@
           Ver unidad cercana
         </button>
 
-        <!-- Contenedor dinámico para feedback al usuario -->
         <div id="status-panel" class="status-card" role="status" aria-live="polite">
           <h3 id="status-title">Buscando unidad más cercana...</h3>
           <p id="status-desc">Conectando con la red de geolocalización municipal.</p>
@@ -228,30 +48,7 @@
     </section>
   </main>
 
-  <script>
-    // JavaScript básico para dotar de interactividad al botón de ubicación
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnLocate = document.getElementById('btn-locate');
-      const statusPanel = document.getElementById('status-panel');
-      const statusTitle = document.getElementById('status-title');
-      const statusDesc = document.getElementById('status-desc');
-
-      btnLocate.addEventListener('click', () => {
-        // Mostrar tarjeta de estado
-        statusPanel.classList.add('active');
-        btnLocate.disabled = true;
-        btnLocate.style.opacity = '0.75';
-
-        // Simulación de consulta GPS en tiempo real
-        setTimeout(() => {
-          statusTitle.textContent = '🚛 Unidad #402 — En ruta';
-          statusDesc.textContent = 'Distancia estimada: a 4 cuadras de tu zona (Tiempo estimado de llegada: ~6 min).';
-          btnLocate.disabled = false;
-          btnLocate.style.opacity = '1';
-          btnLocate.innerHTML = 'Actualizar ubicación';
-        }, 900);
-      });
-    });
-  </script>
+  <!-- Lógica JavaScript externa -->
+  <script src="app.js"></script>
 </body>
 </html>
