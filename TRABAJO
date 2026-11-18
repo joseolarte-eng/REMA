@@ -17,6 +17,18 @@
 
   <main>
     <section class="hero-location" aria-labelledby="hero-heading">
+      
+      <!-- Capa 1: Imagen de fondo relacionada con mapas/ubicación -->
+      <img 
+        src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1920&q=80" 
+        alt="Persona visualizando un mapa de ubicación en tiempo real en su teléfono móvil" 
+        class="hero-bg-image"
+      />
+
+      <!-- Capa 2: Superposición oscura para asegurar contraste y legibilidad -->
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <!-- Capa 3: Título y texto superpuestos SOBRE la imagen -->
       <div class="hero-content">
         
         <div class="live-badge">
@@ -24,10 +36,8 @@
           <span>Sistema GPS Activo</span>
         </div>
 
-        <!-- Criterio de aceptación: Título exacto -->
         <h1 id="hero-heading" class="hero-title">MAPEO EN TIEMPO REAL</h1>
 
-        <!-- Criterio de aceptación: Texto descriptivo exacto -->
         <p class="hero-subtitle">
           Averigua donde se encuentra el camión de basura en tiempo real para evitar preocupaciones.
         </p>
