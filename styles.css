@@ -20,9 +20,17 @@ body {
 .prototipo-seccion {
   max-width: 960px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-areas:
+    "titulo titulo titulo"
+    "telefono rapida acumulacion";
+  column-gap: 48px;
+  align-items: start;
 }
 
 .prototipo-titulo {
+  grid-area: titulo;
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
@@ -30,6 +38,10 @@ body {
   max-width: 480px;
   margin: 0 auto 40px auto;
   color: #000000;
+}
+
+.prototipo-contenedor {
+  grid-area: telefono;
 }
 
 .telefono-visual {
@@ -43,4 +55,44 @@ body {
   height: auto;
   display: block;
   object-fit: contain;
+}
+
+.prototipo-rapida {
+  grid-area: rapida;
+}
+
+.prototipo-acumulacion {
+  grid-area: acumulacion;
+}
+
+.prototipo-rapida,
+.prototipo-acumulacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding-top: 32px;
+}
+
+.prototipo-h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 190px;
+  color: #000000;
+}
+
+.protoitpo-parrafo {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #1f2937;
+  max-width: 220px;
+}
+
+.protoitpo-basura {
+  width: 85px;
+  height: auto;
+  display: block;
+  margin-top: 4px;
 }
