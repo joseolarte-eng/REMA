@@ -16,19 +16,22 @@
 <body>
 
   <main>
+    <!-- =========================================================
+         1. SECCIÓN DE CONTENIDO (Aparece PRIMERO, antes del mapa)
+         ========================================================= -->
     <section class="hero-location" aria-labelledby="hero-heading">
       
-      <!-- Capa 1: Imagen de fondo relacionada con mapas/ubicación -->
+      <!-- Imagen de fondo relacionada con mapas/ubicación -->
       <img 
         src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1920&q=80" 
         alt="Persona visualizando un mapa de ubicación en tiempo real en su teléfono móvil" 
         class="hero-bg-image"
       />
 
-      <!-- Capa 2: Superposición oscura para asegurar contraste y legibilidad -->
+      <!-- Superposición oscura para contraste -->
       <div class="hero-overlay" aria-hidden="true"></div>
 
-      <!-- Capa 3: Título y texto superpuestos SOBRE la imagen -->
+      <!-- Título y texto superpuestos sobre la imagen -->
       <div class="hero-content">
         
         <div class="live-badge">
@@ -47,12 +50,39 @@
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          Ver unidad cercana
+          Ver unidad en el mapa
         </button>
 
+      </div>
+    </section>
+
+    <!-- =========================================================
+         2. SECCIÓN DEL MAPA (Aparece DESPUÉS del contenido)
+         ========================================================= -->
+    <section id="mapa-section" class="map-section" aria-labelledby="map-heading">
+      <div class="map-container">
+        
+        <div class="map-header">
+          <h2 id="map-heading" class="map-title">Ubicación en Vivo de Unidades</h2>
+          <p class="map-description">Consulta el recorrido actual y el tiempo estimado de llegada a tu zona.</p>
+        </div>
+
+        <!-- Barra de estado interactiva -->
         <div id="status-panel" class="status-card" role="status" aria-live="polite">
-          <h3 id="status-title">Buscando unidad más cercana...</h3>
-          <p id="status-desc">Conectando con la red de geolocalización municipal.</p>
+          <span class="status-indicator"></span>
+          <div>
+            <h3 id="status-title">Unidad #402 — En ruta activa</h3>
+            <p id="status-desc">Haz clic en "Ver unidad en el mapa" o selecciona una ruta para actualizar su posición.</p>
+          </div>
+        </div>
+
+        <!-- Contenedor del mapa embebido -->
+        <div class="map-frame-wrapper">
+          <iframe 
+            title="Mapa de rastreo de unidades en tiempo real"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-68.1500%2C-16.5200%2C-68.1000%2C-16.4800&amp;layer=mapnik&amp;marker=-16.5000%2C-68.1250" 
+            loading="lazy">
+          </iframe>
         </div>
 
       </div>
