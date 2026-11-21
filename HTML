@@ -4,36 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mapa de contenedores cercanos</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div>
-  <!-- MAPA -->
-  <img src="captura.png" alt="Mapa de contenedores cercanos: Av. Ayacucho, Gral. Acha, Santivañez y Nataniel Aguirre">
+<main class="app">
+  <header class="app-header">
+    <h1>Mapa de contenedores cercanos</h1>
+  </header>
 
-  <!-- TARJETA 1 -->
-  <div>
-    <div role="img" aria-label="Foto del contenedor"></div>
-    <div>
-      <h3>Contenedor Av. Ayacucho</h3>
-      <p><span></span>Medio Lleno</p>
-      <p>Organicos, Reciclables</p>
-    </div>
-    <span>50m</span>
-  </div>
+  <section class="map-wrapper" aria-label="Mapa de contenedores">
+    <img id="map-image" src="captura.png" alt="Mapa de contenedores cercanos: Av. Ayacucho, Gral. Acha, Santivañez y Nataniel Aguirre">
+    <div id="map-markers" class="map-markers"></div>
+  </section>
 
-  <!-- TARJETA 2 -->
-  <div>
-    <div role="img" aria-label="Foto del contenedor"></div>
-    <div>
-      <h3>Contenedor Av. Ayacucho</h3>
-      <p><span></span>Lleno</p>
-      <p>Organicos, Reciclabless</p>
-    </div>
-    <span>150m</span>
-  </div>
+  <section id="containers-list" class="containers-list" aria-label="Contenedores cercanos">
+    <article class="container-card" data-id="1">
+      <div class="container-photo" role="img" aria-label="Foto del contenedor"></div>
+      <div class="container-info">
+        <h3>Contenedor Av. Ayacucho</h3>
+        <p class="status status--medium"><span class="status-dot"></span>Medio Lleno</p>
+        <p class="waste-types">Organicos, Reciclables</p>
+      </div>
+      <span class="distance">50m</span>
+    </article>
 
-</div>
+    <article class="container-card" data-id="2">
+      <div class="container-photo" role="img" aria-label="Foto del contenedor"></div>
+      <div class="container-info">
+        <h3>Contenedor Av. Ayacucho</h3>
+        <p class="status status--full"><span class="status-dot"></span>Lleno</p>
+        <p class="waste-types">Organicos, Reciclables</p>
+      </div>
+      <span class="distance">150m</span>
+    </article>
+  </section>
+</main>
 
+<script src="RE22.js"></script>
 </body>
 </html>
