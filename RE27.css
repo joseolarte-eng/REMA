@@ -1,0 +1,328 @@
+:root {
+    --bg-pagina: #ffffff;
+    --bg-mapa: #9ca3af;
+    --calle-blanca: #ffffff;
+    --texto-principal: #111827;
+    --texto-secundario: #4b5563;
+    --borde-tarjeta: #e5e7eb;
+    --color-medio: #f59e0b;
+    --color-lleno: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-pagina);
+    color: var(--texto-principal);
+    line-height: 1.4;
+    padding: 20px 16px 36px;
+}
+
+.rema-contenedor {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.rema-header {
+    margin-bottom: 16px;
+}
+
+.rema-header h1 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.rema-header p {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+}
+
+/* Lienzo del mapa */
+.mapa-contenedor {
+    position: relative;
+    width: 100%;
+    height: 410px;
+    background-color: var(--bg-mapa);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+    margin-bottom: 20px;
+}
+
+.calle {
+    position: absolute;
+    background-color: var(--calle-blanca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calle--ayacucho {
+    width: 38px;
+    height: 115%;
+    top: -8%;
+    left: 33%;
+    transform: rotate(-8deg);
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 58px 0 88px;
+}
+
+.calle--aguirre {
+    width: 30px;
+    height: 115%;
+    top: -8%;
+    left: 77%;
+    transform: rotate(-8deg);
+}
+
+.calle--acha {
+    width: 110%;
+    height: 24px;
+    top: 21%;
+    left: -5%;
+    transform: rotate(-8deg);
+    justify-content: space-around;
+}
+
+.calle--santivanez {
+    width: 110%;
+    height: 24px;
+    top: 63%;
+    left: -5%;
+    transform: rotate(-8deg);
+    justify-content: space-around;
+}
+
+.calle--sur {
+    width: 110%;
+    height: 26px;
+    bottom: 2%;
+    left: -5%;
+    transform: rotate(-8deg);
+}
+
+.calle-nombre {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1f2937;
+    white-space: nowrap;
+}
+
+.calle--ayacucho .calle-nombre,
+.calle--aguirre .calle-nombre {
+    writing-mode: vertical-rl;
+}
+
+.calle-nombre--izq {
+    margin-right: 120px;
+}
+
+.calle-nombre--der {
+    margin-right: 40px;
+}
+
+/* Marcadores del mapa */
+.marcador {
+    position: absolute;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    z-index: 3;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.marcador:hover,
+.marcador:focus-visible {
+    transform: scale(1.1);
+    outline: 2px solid #111827;
+}
+
+.marcador.is-active {
+    transform: scale(1.16);
+    filter: drop-shadow(0 0 8px rgba(17, 24, 39, 0.45));
+}
+
+.marcador--lleno {
+    color: var(--color-lleno);
+    top: 11%;
+    left: 34%;
+}
+
+.marcador--medio {
+    color: var(--color-medio);
+    top: 50%;
+    left: 20%;
+}
+
+/* Tarjetas informativas debajo del mapa */
+.tarjetas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tarjeta-contenedor {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    width: 78%;
+    background: #ffffff;
+    border: 1.5px solid var(--borde-tarjeta);
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-contenedor--izquierda {
+    align-self: flex-start;
+}
+
+.tarjeta-contenedor--derecha {
+    align-self: flex-end;
+}
+
+.tarjeta-contenedor:hover,
+.tarjeta-contenedor:focus-visible {
+    border-color: #9ca3af;
+    outline: none;
+}
+
+.tarjeta-contenedor.is-active {
+    border-color: #111827;
+    box-shadow: 0 6px 18px rgba(17, 24, 39, 0.14);
+    transform: translateY(-2px);
+}
+
+/* Miniatura visual del punto de recolección */
+.tarjeta-imagen {
+    width: 96px;
+    min-width: 96px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #374151;
+}
+
+.foto-simulada {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 92px;
+    background: linear-gradient(180deg, #93c5fd 0%, #6b7280 55%, #374151 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+    padding-bottom: 18px;
+}
+
+.foto-totem {
+    width: 22px;
+    height: 44px;
+    border-radius: 4px 4px 0 0;
+    border-top: 8px solid #1f2937;
+}
+
+.foto-totem--verde {
+    background-color: #16a34a;
+}
+
+.foto-totem--amarillo {
+    background-color: #eab308;
+}
+
+.foto-base {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #15803d;
+    color: #facc15;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 2px 0;
+    letter-spacing: 0.06em;
+}
+
+/* Textos de la tarjeta */
+.tarjeta-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.tarjeta-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.tarjeta-titulo {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--texto-principal);
+}
+
+.tarjeta-distancia {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--texto-secundario);
+    white-space: nowrap;
+}
+
+.tarjeta-ubicacion {
+    font-size: 0.78rem;
+    color: var(--texto-secundario);
+}
+
+.tarjeta-estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.estado-punto {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+
+.estado-punto--medio {
+    background-color: var(--color-medio);
+}
+
+.estado-punto--lleno {
+    background-color: var(--color-lleno);
+}
+
+.tarjeta-tipos {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+@media (max-width: 480px) {
+    .mapa-contenedor {
+        height: 350px;
+    }
+
+    .tarjeta-contenedor {
+        width: 100%;
+    }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE27 - Relación entre mapa y tarjetas</title>
+    <link rel="stylesheet" href="RE27.css">
+</head>
+<body>
+    <main class="rema-contenedor">
+        <header class="rema-header">
+            <h1>Contenedores cercanos</h1>
+            <p>Selecciona un contenedor en el mapa o en las tarjetas para verificar su ubicación y espacio disponible.</p>
+        </header>
+
+        <!-- Mapa esquemático fiel al diseño -->
+        <section class="mapa-contenedor" aria-label="Mapa de contenedores en Av. Ayacucho">
+            <!-- Calles principales y transversales -->
+            <div class="calle calle--ayacucho" aria-hidden="true">
+                <span class="calle-nombre calle-nombre--top">Av. Ayacucho</span>
+                <span class="calle-nombre calle-nombre--bottom">Av. Ayacucho</span>
+            </div>
+            <div class="calle calle--aguirre" aria-hidden="true">
+                <span class="calle-nombre">Nataniel Aguirre</span>
+            </div>
+            <div class="calle calle--acha" aria-hidden="true">
+                <span class="calle-nombre calle-nombre--izq">Gral. Acha</span>
+                <span class="calle-nombre calle-nombre--der">Gral. Acha</span>
+            </div>
+            <div class="calle calle--santivanez" aria-hidden="true">
+                <span class="calle-nombre calle-nombre--izq">Santivañez</span>
+                <span class="calle-nombre calle-nombre--der">Santivañez</span>
+            </div>
+            <div class="calle calle--sur" aria-hidden="true"></div>
+
+            <!-- Marcador 1: Lleno (Rojo - Av. Ayacucho y Gral. Acha) -->
+            <button
+                type="button"
+                class="marcador marcador--lleno"
+                data-target="cnt-lleno"
+                aria-pressed="false"
+                aria-label="Contenedor Av. Ayacucho esquina Gral. Acha, estado Lleno, a 150 metros"
+            >
+                <svg viewBox="0 0 36 44" width="32" height="40" aria-hidden="true">
+                    <rect x="4" y="2" width="28" height="6" rx="2" fill="currentColor"/>
+                    <path d="M6 11h24l-2.5 28a3 3 0 0 1-3 2.7h-13a3 3 0 0 1-3-2.7L6 11z" fill="currentColor"/>
+                </svg>
+            </button>
+
+            <!-- Marcador 2: Medio Lleno (Naranja - Av. Ayacucho y Santivañez) -->
+            <button
+                type="button"
+                class="marcador marcador--medio is-active"
+                data-target="cnt-medio"
+                aria-pressed="true"
+                aria-label="Contenedor Av. Ayacucho esquina Santivañez, estado Medio Lleno, a 50 metros"
+            >
+                <svg viewBox="0 0 36 44" width="32" height="40" aria-hidden="true">
+                    <rect x="4" y="2" width="28" height="6" rx="2" fill="currentColor"/>
+                    <path d="M6 11h24l-2.5 28a3 3 0 0 1-3 2.7h-13a3 3 0 0 1-3-2.7L6 11z" fill="currentColor"/>
+                </svg>
+            </button>
+        </section>
+
+        <!-- Lista de tarjetas informativas vinculadas 1 a 1 con el mapa -->
+        <section class="tarjetas-lista" aria-label="Tarjetas informativas de contenedores">
+            <!-- Tarjeta 1: Medio Lleno (50m) -->
+            <article
+                class="tarjeta-contenedor tarjeta-contenedor--izquierda is-active"
+                id="cnt-medio"
+                data-marker="cnt-medio"
+                tabindex="0"
+            >
+                <div class="tarjeta-imagen" aria-hidden="true">
+                    <div class="foto-simulada">
+                        <span class="foto-cielo"></span>
+                        <span class="foto-totem foto-totem--verde"></span>
+                        <span class="foto-totem foto-totem--amarillo"></span>
+                        <span class="foto-base">EMSA</span>
+                    </div>
+                </div>
+                <div class="tarjeta-contenido">
+                    <div class="tarjeta-cabecera">
+                        <h2 class="tarjeta-titulo">Contenedor Av. Ayacucho</h2>
+                        <span class="tarjeta-distancia">50m</span>
+                    </div>
+                    <p class="tarjeta-ubicacion">Esquina calle Santivañez</p>
+                    <div class="tarjeta-estado">
+                        <span class="estado-punto estado-punto--medio" aria-hidden="true"></span>
+                        <span>Medio Lleno</span>
+                    </div>
+                    <p class="tarjeta-tipos">Orgánicos, Reciclables</p>
+                </div>
+            </article>
+
+            <!-- Tarjeta 2: Lleno (150m) -->
+            <article
+                class="tarjeta-contenedor tarjeta-contenedor--derecha"
+                id="cnt-lleno"
+                data-marker="cnt-lleno"
+                tabindex="0"
+            >
+                <div class="tarjeta-imagen" aria-hidden="true">
+                    <div class="foto-simulada">
+                        <span class="foto-cielo"></span>
+                        <span class="foto-totem foto-totem--verde"></span>
+                        <span class="foto-totem foto-totem--amarillo"></span>
+                        <span class="foto-base">EMSA</span>
+                    </div>
+                </div>
+                <div class="tarjeta-contenido">
+                    <div class="tarjeta-cabecera">
+                        <h2 class="tarjeta-titulo">Contenedor Av. Ayacucho</h2>
+                        <span class="tarjeta-distancia">150m</span>
+                    </div>
+                    <p class="tarjeta-ubicacion">Esquina calle Gral. Acha</p>
+                    <div class="tarjeta-estado">
+                        <span class="estado-punto estado-punto--lleno" aria-hidden="true"></span>
+                        <span>Lleno</span>
+                    </div>
+                    <p class="tarjeta-tipos">Orgánicos, Reciclables</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="RE27.js"></script>
+</body>
+</html>
