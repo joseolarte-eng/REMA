@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado visual de los contenedores en el mapa</title>
+    <link rel="stylesheet" href="RE23vz.css">
+    <script src="re23k.js"></script>
+</head>
+<body>
+    <header class="page-header">
+        <h1>Estado visual de los contenedores en el mapa</h1>
+        <p class="page-intro">
+            Encuentra puntos cercanos para depositar tus residuos y revisa el nivel de llenado de cada contenedor en tiempo real.
+        </p>
+    </header>
+
+    <main class="map-section">
+        <!-- Leyenda de estados -->
+        <div class="legend" aria-label="Leyenda de estados de contenedores">
+            <span class="legend-item">
+                <span class="dot dot--medio" aria-hidden="true"></span>
+                Medio lleno
+            </span>
+            <span class="legend-item">
+                <span class="dot dot--lleno" aria-hidden="true"></span>
+                Lleno
+            </span>
+        </div>
+
+        <div class="map-layout">
+            <!-- Mapa esquemático con calles y marcadores interactivos -->
+            <section class="map-canvas" aria-label="Mapa de contenedores">
+                <div class="street street--vertical" aria-hidden="true">
+                    <span class="street-label">Ayacucho</span>
+                </div>
+                <div class="street street--horizontal" aria-hidden="true">
+                    <span class="street-label">Gral. Acha</span>
+                </div>
+
+                <!-- Contenedor 1: Medio lleno -->
+                <button
+                    type="button"
+                    class="marker marker--medio is-selected"
+                    data-id="cnt-1"
+                    data-name="Contenedor #01 — Ayacucho y Aroma"
+                    data-state="Medio lleno"
+                    data-level="medio"
+                    data-summary="Capacidad al 50%. Aún puedes depositar residuos domésticos habituales."
+                    aria-pressed="true"
+                    aria-label="Contenedor 01, estado Medio lleno"
+                >
+                    <svg class="marker-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                        <path fill="currentColor" d="M6 7h12l-1 14H7L6 7zm3-3h6l1 2H8l1-2z"/>
+                    </svg>
+                </button>
+
+                <!-- Contenedor 2: Lleno -->
+                <button
+                    type="button"
+                    class="marker marker--lleno"
+                    data-id="cnt-2"
+                    data-name="Contenedor #02 — Gral. Acha y Ayacucho"
+                    data-state="Lleno"
+                    data-level="lleno"
+                    data-summary="Capacidad al 100%. Se recomienda acudir a otro punto cercano hasta su recolección."
+                    aria-pressed="false"
+                    aria-label="Contenedor 02, estado Lleno"
+                >
+                    <svg class="marker-icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                        <path fill="currentColor" d="M6 7h12l-1 14H7L6 7zm3-3h6l1 2H8l1-2z"/>
+                    </svg>
+                </button>
+            </section>
+
+            <!-- Tarjeta informativa sincronizada con el marcador seleccionado -->
+            <aside class="info-card info-card--medio" id="container-info-card" aria-live="polite">
+                <div class="info-card__header">
+                    <span class="status-badge" id="info-status-badge">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span id="info-status-text">Medio lleno</span>
+                    </span>
+                </div>
+                <h2 class="info-card__title" id="info-title">Contenedor #01 — Ayacucho y Aroma</h2>
+                <p class="info-card__description" id="info-description">
+                    Capacidad al 50%. Aún puedes depositar residuos domésticos habituales.
+                </p>
+            </aside>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
