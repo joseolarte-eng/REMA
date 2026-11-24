@@ -247,7 +247,6 @@ body {
   gap: 1.25rem;
 }
 
-/* Diseño de tarjeta blanca fiel a la referencia */
 .container-card {
   display: flex;
   align-items: stretch;
@@ -351,3 +350,4 @@ body {
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
