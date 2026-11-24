@@ -8,7 +8,7 @@
   <!-- Tipografías Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- Hoja de estilos externa -->
   <link rel="stylesheet" href="styles.css" />
@@ -21,17 +21,14 @@
          ========================================================= -->
     <section class="hero-location" aria-labelledby="hero-heading">
       
-      <!-- Imagen de fondo relacionada con mapas/ubicación -->
       <img 
         src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1920&q=80" 
         alt="Persona visualizando un mapa de ubicación en tiempo real en su teléfono móvil" 
         class="hero-bg-image"
       />
 
-      <!-- Superposición oscura para contraste -->
       <div class="hero-overlay" aria-hidden="true"></div>
 
-      <!-- Título y texto superpuestos sobre la imagen -->
       <div class="hero-content">
         
         <div class="live-badge">
@@ -67,7 +64,6 @@
           <p class="map-description">Consulta el recorrido actual y el tiempo estimado de llegada a tu zona.</p>
         </div>
 
-        <!-- Barra de estado interactiva -->
         <div id="status-panel" class="status-card" role="status" aria-live="polite">
           <span class="status-indicator"></span>
           <div>
@@ -76,7 +72,6 @@
           </div>
         </div>
 
-        <!-- Contenedor del mapa embebido -->
         <div class="map-frame-wrapper">
           <iframe 
             title="Mapa de rastreo de unidades en tiempo real"
@@ -85,6 +80,49 @@
           </iframe>
         </div>
 
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. SECCIÓN DE CONTENEDORES CERCANOS
+         ========================================================= -->
+    <section id="contenedores-section" class="containers-section" aria-labelledby="containers-heading">
+      <div class="containers-wrapper">
+        
+        <div class="containers-header">
+          <h2 id="containers-heading" class="containers-title">Estado de Contenedores</h2>
+          <p class="containers-description">Verifica la capacidad disponible en los puntos de recolección cercanos.</p>
+        </div>
+
+        <div class="containers-list">
+          
+          <!-- Tarjeta 1: Contenedor con estado "Lleno" -->
+          <article class="container-card">
+            <img 
+              src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=500&q=80" 
+              alt="Contenedor de residuos Orgánicos y Reciclables en Av. Ayacucho" 
+              class="container-card-img"
+            />
+
+            <div class="container-card-info">
+              <div class="container-card-header">
+                <h3 class="container-card-title">Contenedor Av. Ayacucho</h3>
+                <span class="container-card-distance">150m</span>
+              </div>
+
+              <div class="container-card-status">
+                <span class="status-dot status-dot--full" aria-hidden="true"></span>
+                <span class="status-label">Lleno</span>
+              </div>
+
+              <div class="container-card-types">
+                <span class="type-line" aria-hidden="true"></span>
+                <span>Organicos, Reciclables</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
   </main>
