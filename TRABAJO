@@ -96,8 +96,8 @@
 
         <div class="containers-list">
           
-          <!-- Tarjeta 1: Contenedor con estado "Lleno" y distancia "150 m" -->
-          <article class="container-card">
+          <!-- Tarjeta 1: Contenedor con estado "Lleno" e indicador visual rojo -->
+          <article class="container-card" data-status="lleno">
             <img 
               src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=500&q=80" 
               alt="Contenedor de residuos Orgánicos y Reciclables en Av. Ayacucho" 
@@ -111,7 +111,7 @@
               </div>
 
               <div class="container-card-status">
-                <span class="status-dot status-dot--full" aria-hidden="true"></span>
+                <span class="status-dot status-dot--full" role="img" aria-label="Indicador de estado lleno"></span>
                 <span class="status-label">Lleno</span>
               </div>
 
