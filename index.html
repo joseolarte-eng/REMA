@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RE20 - Contenedores visibles en el mapa</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #e5e7eb;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Contenedor vertical del mapa con tu imagen de referencia */
+    .mapa-box {
+      position: relative;
+      width: 280px;
+      max-width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+      background: #9ca3af;
+    }
+
+    .mapa-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Pin en forma de gota celeste con ícono de contenedor adentro */
+    .pin-contenedor {
+      position: absolute;
+      transform: translate(-50%, -100%);
+      width: 34px;
+      height: 44px;
+      background: #93c5fd; /* celeste suave como en la referencia */
+      border-radius: 50% 50% 50% 0;
+      transform-origin: bottom center;
+      transform: translate(-50%, -100%) rotate(-45deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    /* Endereza el ícono de basurero blanco dentro del pin */
+    .pin-contenedor span {
+      transform: rotate(45deg);
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    /* Marcador del camión (forma y color distintos al contenedor) */
+    .pin-camion {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #f59e0b;
+      color: #111827;
+      border: 2px solid #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="mapa-box" id="mapa">
+
+    <img src="C:\Users\PC\Downloads\rema\mapa-referencia.png" alt="Mapa esquemático de calles y contenedores" />
+  </div>
+
+  <script>
+    const mapa = document.getElementById("mapa");
+
+    // Contenedores registrados en REMA (x e y en porcentaje sobre la imagen)
+    const contenedores = [
+      { nombre: "Contenedor Av. Ayacucho y Jordán", x: 35, y: 69, registrado: true },
+      { nombre: "Contenedor Gral. Acha", x: 45, y: 27, registrado: true },
+      { nombre: "No registrado en REMA", x: 60, y: 50, registrado: false }
+    ];
+
+    // Dibujar solo los contenedores registrados en REMA
+    contenedores
+      .filter((c) => c.registrado)
+      .forEach((c) => {
+        const pin = document.createElement("div");
+        pin.className = "pin-contenedor";
+        pin.style.left = c.x + "%";
+        pin.style.top = c.y + "%";
+        pin.title = c.nombre;
+        pin.innerHTML = "<span>🗑️</span>";
+        pin.onclick = () => alert(c.nombre);
+        mapa.appendChild(pin);
+      });
+
+    // Ejemplo de ícono del camión (cuadrado ámbar, distinto al pin celeste)
+    const camion = { x: 42, y: 78 };
+    const pinCamion = document.createElement("div");
+    pinCamion.className = "pin-camion";
+    pinCamion.style.left = camion.x + "%";
+    pinCamion.style.top = camion.y + "%";
+    pinCamion.title = "Camión recolector";
+    pinCamion.textContent = "🚛";
+    mapa.appendChild(pinCamion);
+  </script>
+</body>
+</html>
