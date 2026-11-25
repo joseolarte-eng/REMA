@@ -1,18 +1,17 @@
-.calle-camion {
+.ruta {
     position: absolute;
-    top: 48%;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background-color: #b8b8b8;
-    border-top: 3px solid white;
-    border-bottom: 3px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 42px;
+    left: 10%;
+    width: 80%;
+    height: 6px;
+    background-color: #28a745;
+    border-radius: 10px;
+    z-index: 2;
 }
 
 .camion {
+    position: relative;
+    z-index: 3;
     font-size: 48px;
     background-color: white;
     padding: 10px;
