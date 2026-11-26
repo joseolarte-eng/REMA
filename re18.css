@@ -1,3 +1,112 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f5f3;
+    color: #263b30;
+}
+
+.mapa-seccion {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.mapa-seccion h1 {
+    color: #245c42;
+    font-size: 30px;
+}
+
+.mapa-seccion p {
+    color: #555;
+    font-size: 17px;
+}
+
+.mapa {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    margin-top: 30px;
+    overflow: hidden;
+    border: 2px solid #d0d8d0;
+    border-radius: 15px;
+    background-color: #e4eadf;
+    background-image:
+        linear-gradient(90deg, transparent 48%, #ffffff 48%, #ffffff 52%, transparent 52%),
+        linear-gradient(0deg, transparent 43%, #ffffff 43%, #ffffff 57%, transparent 57%);
+    background-size: 180px 150px;
+}
+
+.edificio {
+    position: absolute;
+    width: 100px;
+    height: 65px;
+    background-color: #c4d2bd;
+    border: 2px solid #a9bba3;
+    border-radius: 6px;
+}
+
+.edificio-1 {
+    top: 40px;
+    left: 40px;
+}
+
+.edificio-2 {
+    top: 40px;
+    right: 50px;
+}
+
+.edificio-3 {
+    bottom: 40px;
+    left: 70px;
+}
+
+.edificio-4 {
+    bottom: 40px;
+    right: 60px;
+}
+
+/* Nombres de las calles */
+.nombre-calle {
+    position: absolute;
+    z-index: 4;
+    background-color: white;
+    color: #39443b;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.calle-america {
+    top: 53%;
+    left: 20px;
+}
+
+.calle-pando {
+    top: 15%;
+    left: 52%;
+    transform: rotate(90deg);
+}
+
+/* Calle donde se encuentra el camión */
+.calle-camion {
+    position: absolute;
+    top: 48%;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #b8b8b8;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ruta del camión */
 .ruta {
     position: absolute;
     top: 42px;
@@ -9,6 +118,7 @@
     z-index: 2;
 }
 
+/* Camión recolector */
 .camion {
     position: relative;
     z-index: 3;
