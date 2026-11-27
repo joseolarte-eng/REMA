@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,6 +21,7 @@
 
         <section class="mapa">
 
+            <!-- Edificios del mapa -->
             <div class="edificio edificio-1"></div>
             <div class="edificio edificio-2"></div>
             <div class="edificio edificio-3"></div>
@@ -34,22 +36,75 @@
                 Calle Pando
             </span>
 
-            <!-- Calle del camión -->
+            <!-- Calle donde circula el camión -->
             <div class="calle-camion">
 
-                <!-- Ruta verde -->
+                <!-- Recorrido del camión -->
                 <div class="ruta"></div>
 
-                <!-- Camión recolector -->
-                <div class="camion">
+                <!-- Icono del camión recolector -->
+                <div class="camion" id="camion"
+                     style="position: absolute; left: 20%; top: 50%; transform: translate(-50%, -50%);">
                     🚛
                 </div>
 
             </div>
 
+            <!-- Marcador del contenedor cercano -->
+            <div class="marcador-contenedor"
+                 title="Contenedor cercano">
+                🗑️
+            </div>
+
+        </section>
+
+        <!-- Información de ubicación -->
+        <section class="informacion-ubicacion">
+
+            <p id="estado-ubicacion">
+                Ubicación del camión: posición inicial.
+            </p>
+
+            <button type="button" id="btn-actualizar">
+                Actualizar ubicación
+            </button>
+
         </section>
 
     </main>
+
+    <script>
+        // Posiciones de ejemplo del camión sobre la ruta
+        const posiciones = [20, 40, 60, 80];
+
+        let posicionActual = 0;
+
+        const camion = document.getElementById("camion");
+        const estado = document.getElementById("estado-ubicacion");
+        const boton = document.getElementById("btn-actualizar");
+
+        function actualizarUbicacion() {
+
+            // Avanzar a la siguiente posición
+            posicionActual++;
+
+            if (posicionActual >= posiciones.length) {
+                posicionActual = 0;
+            }
+
+            // Cambiar la ubicación visual del camión
+            camion.style.left = posiciones[posicionActual] + "%";
+
+            // Mostrar el estado actualizado
+            estado.textContent =
+                "Ubicación del camión: posición " +
+                (posicionActual + 1) +
+                " del recorrido (simulación).";
+        }
+
+        // Ejecutar la actualización al presionar el botón
+        boton.addEventListener("click", actualizarUbicacion);
+    </script>
 
 </body>
 </html>

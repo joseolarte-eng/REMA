@@ -1,4 +1,5 @@
 
+/* Estilos generales */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -6,6 +7,7 @@ body {
     color: #263b30;
 }
 
+/* Sección principal */
 .mapa-seccion {
     width: 90%;
     max-width: 1000px;
@@ -23,6 +25,7 @@ body {
     font-size: 17px;
 }
 
+/* Mapa */
 .mapa {
     position: relative;
     width: 100%;
@@ -32,12 +35,15 @@ body {
     border: 2px solid #d0d8d0;
     border-radius: 15px;
     background-color: #e4eadf;
+
     background-image:
         linear-gradient(90deg, transparent 48%, #ffffff 48%, #ffffff 52%, transparent 52%),
         linear-gradient(0deg, transparent 43%, #ffffff 43%, #ffffff 57%, transparent 57%);
+
     background-size: 180px 150px;
 }
 
+/* Edificios */
 .edificio {
     position: absolute;
     width: 100px;
@@ -91,7 +97,7 @@ body {
     transform: rotate(90deg);
 }
 
-/* Calle donde se encuentra el camión */
+/* Calle del camión */
 .calle-camion {
     position: absolute;
     top: 48%;
@@ -106,7 +112,7 @@ body {
     justify-content: center;
 }
 
-/* Ruta del camión */
+/* Ruta verde */
 .ruta {
     position: absolute;
     top: 42px;
@@ -120,11 +126,76 @@ body {
 
 /* Camión recolector */
 .camion {
-    position: relative;
+    position: absolute;
     z-index: 3;
     font-size: 48px;
     background-color: white;
     padding: 10px;
     border-radius: 50%;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.5s ease;
+}
+
+/* Marcador del contenedor */
+.marcador-contenedor {
+    position: absolute;
+    top: 70%;
+    left: 75%;
+    z-index: 5;
+    font-size: 30px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Información de ubicación */
+.informacion-ubicacion {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.informacion-ubicacion p {
+    font-size: 16px;
+    color: #39443b;
+}
+
+/* Botón para actualizar ubicación */
+#btn-actualizar {
+    background-color: #245c42;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-actualizar:hover {
+    background-color: #17442f;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+    .mapa {
+        height: 350px;
+    }
+
+    .edificio {
+        width: 65px;
+        height: 50px;
+    }
+
+    .camion {
+        font-size: 36px;
+    }
+
+    .marcador-contenedor {
+        font-size: 24px;
+    }
+
+    .mapa-seccion h1 {
+        font-size: 24px;
+    }
 }
