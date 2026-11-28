@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #111111;
+}
+
+.beneficio-seccion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.beneficio-bloque {
+  max-width: 280px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.beneficio-titulo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.beneficio-descripcion {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #222222;
+  margin-bottom: 24px;
+}
+
+.beneficio-icono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beneficio-icono svg {
+  display: block;
+}
